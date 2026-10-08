@@ -1,3 +1,7 @@
+//question1
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  * Store details of club memberships.
  * 
@@ -36,7 +40,7 @@ public class Club
             System.out.println("INvalid month: " + month);
             return 0;
         }else{
-            int count = 0
+            int count = 0;
                 for (Membership m : members){
                 if (m.getMonth()==month){
                     count++;
@@ -47,20 +51,22 @@ public class Club
     }
     
     //question5
-    public Arraylist<Membership> purge(int month, int year){
+    public ArrayList<Membership> purge(int month, int year){
         if(month<=0 || month>12){
             System.out.println("invalid month: " + month);
             return null;
         }else if (year<=1900 || year>2026){
             System.out.println("invalid year: "+ year);
-            return nul;
+            return null;
         }else{ 
             ArrayList<Membership> removals = new ArrayList();
+            
+            
             Iterator<Membership> it = members.iterator();
 
             while (it.hasNext()){
                 Membership m = it.next();
-                if(m.getMonth())==month && m.getYear()==year){
+                if(m.getMonth()==month && m.getYear()==year){
                     System.out.println("Membership found in " + month +"/" + year);
                     removals.add(m);
                     it.remove();
